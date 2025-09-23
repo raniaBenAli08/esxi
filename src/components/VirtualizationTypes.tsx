@@ -20,7 +20,7 @@ const VirtualizationTypes: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id="type" className="py-20 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
