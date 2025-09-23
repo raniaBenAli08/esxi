@@ -89,7 +89,10 @@ const Conclusion: React.FC = () => {
   };
 
   return (
-    <section id="conclusion" className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-[#0c5a7c] text-white">
+    <section
+      id="conclusion"
+      className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-[#0c5a7c] text-white"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -108,7 +111,7 @@ const Conclusion: React.FC = () => {
               <CheckCircle size={24} className="text-green-400 mr-3" />
               Avantages Clés
             </h3>
-            
+
             <div className="space-y-6">
               {pros.map((pro, index) => {
                 const Icon = pro.icon;
@@ -118,7 +121,9 @@ const Conclusion: React.FC = () => {
                       <Icon size={20} className="text-green-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-2">{pro.title}</h4>
+                      <h4 className="font-semibold text-lg mb-2">
+                        {pro.title}
+                      </h4>
                       <p className="text-sm opacity-80">{pro.description}</p>
                     </div>
                   </div>
@@ -133,7 +138,7 @@ const Conclusion: React.FC = () => {
               <AlertCircle size={24} className="text-yellow-400 mr-3" />
               Points d'Attention
             </h3>
-            
+
             <div className="space-y-6">
               {cons.map((con, index) => (
                 <div key={con.title} className="flex items-start">
@@ -143,10 +148,16 @@ const Conclusion: React.FC = () => {
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="font-semibold text-lg">{con.title}</h4>
-                      <span className={`text-xs px-2 py-1 rounded-full ${
-                        con.impact === 'high' ? 'bg-red-500/20 text-red-300' : 'bg-yellow-500/20 text-yellow-300'
-                      }`}>
-                        {con.impact === 'high' ? 'Impact élevé' : 'Impact moyen'}
+                      <span
+                        className={`text-xs px-2 py-1 rounded-full ${
+                          con.impact === 'high'
+                            ? 'bg-red-500/20 text-red-300'
+                            : 'bg-yellow-500/20 text-yellow-300'
+                        }`}
+                      >
+                        {con.impact === 'high'
+                          ? 'Impact élevé'
+                          : 'Impact moyen'}
                       </span>
                     </div>
                     <p className="text-sm opacity-80">{con.description}</p>
@@ -159,21 +170,30 @@ const Conclusion: React.FC = () => {
 
         {/* Use Cases */}
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Cas d'Usage Recommandés</h3>
-          
+          <h3 className="text-2xl font-bold text-center mb-8">
+            Cas d'Usage Recommandés
+          </h3>
+
           <div className="grid md:grid-cols-2 gap-6">
             {useCases.map((useCase, index) => (
-              <div key={useCase.scenario} className="bg-white/10 rounded-xl p-6">
+              <div
+                key={useCase.scenario}
+                className="bg-white/10 rounded-xl p-6"
+              >
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="font-semibold text-lg">{useCase.scenario}</h4>
-                  <span className={`px-3 py-1 rounded-full text-sm border flex items-center space-x-2 ${getFitColor(useCase.fit)}`}>
+                  <span
+                    className={`px-3 py-1 rounded-full text-sm border flex items-center space-x-2 ${getFitColor(
+                      useCase.fit
+                    )}`}
+                  >
                     {getFitIcon(useCase.fit)}
                     <span className="capitalize">{useCase.fit}</span>
                   </span>
                 </div>
-                
+
                 <p className="text-sm opacity-80 mb-4">{useCase.description}</p>
-                
+
                 <div className="bg-white/10 rounded-lg p-3">
                   <p className="text-xs opacity-90">
                     <span className="font-semibold">Raison: </span>
@@ -185,8 +205,8 @@ const Conclusion: React.FC = () => {
           </div>
         </div>
 
-        {/* Final Recommendation */}
-        <div className="bg-gradient-to-r from-[#0fb0f0] to-[#0c5a7c] rounded-2xl p-8 text-center">
+        {/* Final Recommendation
+            <div className="bg-gradient-to-r from-[#0fb0f0] to-[#0c5a7c] rounded-2xl p-8 text-center">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-6">Recommandation Finale</h3>
             
@@ -224,6 +244,7 @@ const Conclusion: React.FC = () => {
             </div>
           </div>
         </div>
+        */}
       </div>
     </section>
   );

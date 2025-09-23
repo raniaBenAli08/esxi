@@ -8,7 +8,6 @@ import AdvancedTechniques from './components/AdvancedTechniques';
 import KeyFeatures from './components/KeyFeatures';
 import Limitations from './components/Limitations';
 import Security from './components/Security';
-import Comparison from './components/Comparison';
 import Conclusion from './components/Conclusion';
 import Footer from './components/Footer';
 
@@ -25,7 +24,6 @@ function App() {
         <KeyFeatures />
         <Limitations />
         <Security />
-        <Comparison />
         <Conclusion />
       </main>
       <Footer />
