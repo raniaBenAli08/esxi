@@ -46,7 +46,10 @@ const Limitations: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+    <section
+      id="limit"
+      className="py-20 bg-gradient-to-br from-gray-50 to-red-50 scroll-mt-20"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
@@ -67,7 +70,7 @@ const Limitations: React.FC = () => {
               <Server size={24} className="text-[#0fb0f0] mr-3" />
               Limites Techniques
             </h3>
-            
+
             <div className="grid grid-cols-2 gap-4">
               {technicalLimitations.map((limit, index) => {
                 const Icon = limit.icon;
@@ -77,8 +80,12 @@ const Limitations: React.FC = () => {
                     className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-4 border border-gray-100"
                   >
                     <Icon size={20} className="text-[#0c5a7c] mb-2" />
-                    <div className="text-sm text-gray-600 mb-1">{limit.metric}</div>
-                    <div className="text-xl font-bold text-[#0fb0f0]">{limit.limit}</div>
+                    <div className="text-sm text-gray-600 mb-1">
+                      {limit.metric}
+                    </div>
+                    <div className="text-xl font-bold text-[#0fb0f0]">
+                      {limit.limit}
+                    </div>
                   </div>
                 );
               })}
@@ -86,11 +93,17 @@ const Limitations: React.FC = () => {
 
             <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
               <div className="flex items-start">
-                <AlertTriangle size={20} className="text-yellow-600 mr-2 mt-1 flex-shrink-0" />
+                <AlertTriangle
+                  size={20}
+                  className="text-yellow-600 mr-2 mt-1 flex-shrink-0"
+                />
                 <div>
-                  <p className="text-sm text-yellow-800 font-medium">Note importante</p>
+                  <p className="text-sm text-yellow-800 font-medium">
+                    Note importante
+                  </p>
                   <p className="text-xs text-yellow-700 mt-1">
-                    Ces limites évoluent avec chaque version et dépendent de la licence souscrite.
+                    Ces limites évoluent avec chaque version et dépendent de la
+                    licence souscrite.
                   </p>
                 </div>
               </div>
@@ -107,10 +120,12 @@ const Limitations: React.FC = () => {
                   className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="flex items-start">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${challenge.color} rounded-xl flex items-center justify-center mr-4 flex-shrink-0`}>
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-r ${challenge.color} rounded-xl flex items-center justify-center mr-4 flex-shrink-0`}
+                    >
                       <Icon size={24} className="text-white" />
                     </div>
-                    
+
                     <div className="flex-1">
                       <h4 className="text-xl font-bold text-gray-900 mb-2">
                         {challenge.title}
@@ -118,12 +133,14 @@ const Limitations: React.FC = () => {
                       <p className="text-gray-600 mb-4">
                         {challenge.description}
                       </p>
-                      
+
                       <div className="space-y-2">
                         {challenge.details.map((detail, idx) => (
                           <div key={idx} className="flex items-center">
                             <div className="w-2 h-2 bg-gray-400 rounded-full mr-3"></div>
-                            <span className="text-sm text-gray-700">{detail}</span>
+                            <span className="text-sm text-gray-700">
+                              {detail}
+                            </span>
                           </div>
                         ))}
                       </div>
@@ -140,31 +157,37 @@ const Limitations: React.FC = () => {
           <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             Exemple de Coûts (indicatifs)
           </h3>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <DollarSign size={32} className="text-red-600" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">vSphere Standard</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">
+                vSphere Standard
+              </h4>
               <p className="text-2xl font-bold text-red-600">~1,000€</p>
               <p className="text-sm text-gray-600">par socket CPU</p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <DollarSign size={32} className="text-yellow-600" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">vSphere Enterprise</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">
+                vSphere Enterprise
+              </h4>
               <p className="text-2xl font-bold text-yellow-600">~4,000€</p>
               <p className="text-sm text-gray-600">par socket CPU</p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen size={32} className="text-orange-600" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">Support & Formation</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">
+                Support & Formation
+              </h4>
               <p className="text-2xl font-bold text-orange-600">20-25%</p>
               <p className="text-sm text-gray-600">du coût licence/an</p>
             </div>

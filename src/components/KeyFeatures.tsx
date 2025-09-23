@@ -53,7 +53,7 @@ const KeyFeatures: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id="features" className="py-20 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
@@ -69,7 +69,9 @@ const KeyFeatures: React.FC = () => {
 
         {/* Metrics Dashboard */}
         <div className="bg-gradient-to-r from-[#0fb0f0] to-[#0c5a7c] rounded-2xl p-8 mb-12 text-white">
-          <h3 className="text-2xl font-bold text-center mb-8">Impact Business</h3>
+          <h3 className="text-2xl font-bold text-center mb-8">
+            Impact Business
+          </h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {metrics.map((metric, index) => (
               <div key={metric.label} className="text-center">
@@ -121,22 +123,30 @@ const KeyFeatures: React.FC = () => {
                   <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
                   <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                 </div>
-                <div className="ml-4 text-white font-semibold">vCenter Server</div>
+                <div className="ml-4 text-white font-semibold">
+                  vCenter Server
+                </div>
               </div>
             </div>
-            
+
             <div className="p-8 bg-gray-50">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-semibold text-gray-900 mb-2">Hosts actifs</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Hosts actifs
+                  </h4>
                   <div className="text-2xl font-bold text-[#0fb0f0]">12</div>
                 </div>
                 <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-semibold text-gray-900 mb-2">VMs en cours</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    VMs en cours
+                  </h4>
                   <div className="text-2xl font-bold text-green-600">247</div>
                 </div>
                 <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-semibold text-gray-900 mb-2">CPU Usage</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    CPU Usage
+                  </h4>
                   <div className="text-2xl font-bold text-yellow-600">67%</div>
                 </div>
               </div>
