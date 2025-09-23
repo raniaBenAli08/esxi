@@ -1,47 +1,22 @@
 import React from 'react';
-import { Cpu, Zap, Settings } from 'lucide-react';
+import { Cpu } from 'lucide-react';
 
 const VirtualizationTypes: React.FC = () => {
   const types = [
     {
-      title: "Virtualisation Complète",
-      description: "OS invité non modifié",
+      title: 'VMware ESXi',
+      description:
+        "Hyperviseur Bare-Metal (Type 1) pour virtualisation d'entreprise",
       icon: Cpu,
-      color: "from-blue-500 to-blue-700",
+      color: 'from-blue-500 to-blue-700',
       features: [
-        "OS invité inchangé",
-        "Performance quasi-native",
-        "Compatibilité maximale",
-        "Isolation complète"
+        'Installé directement sur le serveur, sans OS hôte',
+        "Performance maximale grâce à l'accès direct au matériel",
+        'Empreinte réduite (~150 Mo) et sécurité renforcée',
+        'Isolation complète entre les VMs',
       ],
-      performance: 95
+      performance: 100,
     },
-    {
-      title: "Paravirtualisation",
-      description: "OS adapté pour l'hyperviseur",
-      icon: Settings,
-      color: "from-green-500 to-green-700",
-      features: [
-        "OS modifié",
-        "E/S optimisées",
-        "Moins de surcharge",
-        "Meilleure performance"
-      ],
-      performance: 98
-    },
-    {
-      title: "Assistée Matériel",
-      description: "Support CPU natif",
-      icon: Zap,
-      color: "from-purple-500 to-purple-700",
-      features: [
-        "Intel VT-x / AMD-V",
-        "Virtualisation hardware",
-        "Performance optimale",
-        "Sécurité renforcée"
-      ],
-      performance: 99
-    }
   ];
 
   return (
@@ -51,16 +26,17 @@ const VirtualizationTypes: React.FC = () => {
           <div className="flex items-center justify-center mb-4">
             <Cpu size={32} className="text-[#0fb0f0] mr-3" />
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-              Types de Virtualisation
+              Type
             </h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Différentes approches pour optimiser les performances et la compatibilité
+            Hyperviseur de type 1 pour une virtualisation d'entreprise
+            performante et sécurisée
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {types.map((type, index) => {
+        <div className="grid md:grid-cols-1 gap-8">
+          {types.map((type) => {
             const Icon = type.icon;
             return (
               <div
@@ -68,7 +44,9 @@ const VirtualizationTypes: React.FC = () => {
                 className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
               >
                 {/* Header */}
-                <div className={`bg-gradient-to-r ${type.color} p-6 text-white`}>
+                <div
+                  className={`bg-gradient-to-r ${type.color} p-6 text-white`}
+                >
                   <Icon size={48} className="mb-4" />
                   <h3 className="text-xl font-bold mb-2">{type.title}</h3>
                   <p className="text-sm opacity-90">{type.description}</p>
@@ -79,8 +57,12 @@ const VirtualizationTypes: React.FC = () => {
                   {/* Performance Bar */}
                   <div className="mb-6">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-gray-700">Performance</span>
-                      <span className="text-sm font-bold text-[#0fb0f0]">{type.performance}%</span>
+                      <span className="text-sm font-medium text-gray-700">
+                        Performance
+                      </span>
+                      <span className="text-sm font-bold text-[#0fb0f0]">
+                        {type.performance}%
+                      </span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div
