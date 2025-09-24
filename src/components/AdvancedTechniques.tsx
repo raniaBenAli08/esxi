@@ -2,33 +2,33 @@ import React from 'react';
 import { Cpu, HardDrive, Shield, Network, Code2 } from 'lucide-react';
 
 const AdvancedTechniques: React.FC = () => {
-  const sections = [
-    {
-      title: 'Bare-metal Hypervisor',
-      icon: Cpu,
-      items: [],
-    },
-    {
-      title: 'VMkernel',
-      icon: Shield,
-      items: [],
-    },
-    {
-      title: 'VMFS (Virtual Machine File System)',
-      icon: HardDrive,
-      items: [],
-    },
-    {
-      title: 'vSphere APIs',
-      icon: Code2,
-      items: [],
-    },
-    {
-      title: 'Device Drivers',
-      icon: Network,
-      items: [],
-    },
-  ];
+const sections = [
+  {
+    title: 'Hyperviseur Bare-metal',
+    icon: Cpu,
+    items: [],
+  },
+  {
+    title: 'VMkernel',
+    icon: Shield,
+    items: [],
+  },
+  {
+    title: 'VMFS (Système de fichiers VM)',
+    icon: HardDrive,
+    items: [],
+  },
+  {
+    title: 'APIs vSphere',
+    icon: Code2,
+    items: [],
+  },
+  {
+    title: 'Pilotes de périphériques',
+    icon: Network,
+    items: [],
+  },
+];
 
   return (
     <section
