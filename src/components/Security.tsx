@@ -167,10 +167,8 @@ const Security: React.FC = () => {
                   </p>
                   <div className="bg-gray-50 rounded-lg p-2">
                     <span className="text-xs text-gray-700 font-medium">
-                      Mitigation:{' '}
                     </span>
                     <span className="text-xs text-gray-600">
-                      {risk.mitigation}
                     </span>
                   </div>
                 </div>
