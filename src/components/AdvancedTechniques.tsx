@@ -6,62 +6,45 @@ const AdvancedTechniques: React.FC = () => {
     {
       title: 'Bare-metal Hypervisor',
       icon: Cpu,
-      items: [
-        'Installation directe sur le matériel serveur',
-        'Gestion native des ressources CPU, mémoire, stockage',
-        'Performance maximale, overhead minimal',
-      ],
+      items: [],
     },
     {
       title: 'VMkernel',
       icon: Shield,
-      items: [
-        'Micro-noyau spécialisé pour la virtualisation',
-        'Ordonnancement efficace des machines virtuelles',
-        'Isolation et sécurité renforcée',
-      ],
+      items: [],
     },
     {
       title: 'VMFS (Virtual Machine File System)',
       icon: HardDrive,
-      items: [
-        'Système de fichiers clusterisé haute performance',
-        'Accès concurrentiel aux baies de stockage partagé',
-        'Support des snapshots et clonage rapide',
-      ],
+      items: [],
     },
     {
       title: 'vSphere APIs',
       icon: Code2,
-      items: [
-        "Interfaces de gestion et d'automation complètes",
-        'Intégration avec outils tiers et scripts personnalisés',
-        "API REST moderne pour l'orchestration",
-      ],
+      items: [],
     },
     {
       title: 'Device Drivers',
       icon: Network,
-      items: [
-        'Pilotes matériels optimisés et certifiés',
-        'Support des technologies hardware récentes',
-        'Compatibilité étendue avec les serveurs enterprise',
-      ],
+      items: [],
     },
   ];
 
   return (
-    <section id="architecture" className="py-20 bg-gray-50">
+    <section
+      id="techniques"
+      className="py-24 bg-gradient-to-b from-gray-50 to-blue-50"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
-            <Cpu size={32} className="text-[#0fb0f0] mr-3" />
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <Cpu size={36} className="text-blue-500 mr-3" />
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
               Architecture Technique VMware ESXi
             </h2>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Les fondations techniques qui assurent performance, sécurité et
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Les fondations techniques qui garantissent performance, sécurité et
             fiabilité
           </p>
         </div>
@@ -72,24 +55,31 @@ const AdvancedTechniques: React.FC = () => {
             return (
               <div
                 key={section.title}
-                className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                className="relative bg-white rounded-2xl shadow-md p-8 border border-blue-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group"
               >
+                <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"></div>
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-[#0fb0f0] to-[#0c5a7c] rounded-xl flex items-center justify-center mr-4">
-                    <Icon size={24} className="text-white" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center mr-4 shadow-sm">
+                    <Icon size={28} className="text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900">
+                  <h3 className="text-xl font-semibold text-gray-900">
                     {section.title}
                   </h3>
                 </div>
 
-                <ul className="space-y-3">
-                  {section.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <div className="w-2 h-2 bg-[#0fb0f0] rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
+                <ul className="space-y-4">
+                  {section.items.length > 0 ? (
+                    section.items.map((item, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <div className="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700 leading-relaxed">
+                          {item}
+                        </span>
+                      </li>
+                    ))
+                  ) : (
+                    <li className="text-gray-500 italic"></li>
+                  )}
                 </ul>
               </div>
             );
