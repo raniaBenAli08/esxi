@@ -9,75 +9,84 @@ interface TimelineEvent {
 }
 
 const History: React.FC = () => {
-  const [visibleEvents, setVisibleEvents] = useState<boolean[]>([]);
+  const [visibleEvents, setVisibleEvents] = useState<boolean[]>(
+    Array(6).fill(false)
+  );
 
   const events: TimelineEvent[] = [
     {
       year: 1998,
-      title: "Fondation VMware",
-      description: "Création de l'entreprise avec une vision révolutionnaire de la virtualisation"
+      title: 'Fondation VMware',
+      description:
+        "Création de l'entreprise avec une vision révolutionnaire de la virtualisation",
     },
     {
       year: 2001,
-      title: "ESX (première version)",
-      description: "Lancement du premier hyperviseur VMware ESX",
-      highlight: true
+      title: 'ESX (première version)',
+      description: 'Lancement du premier hyperviseur VMware ESX',
+      highlight: true,
     },
     {
       year: 2008,
-      title: "ESXi → plus léger",
-      description: "Introduction d'ESXi, version allégée sans OS hôte",
-      highlight: true
+      title: 'ESXi → plus léger',
+      description:
+        "Introduction d'ESXi, version allégée sans OS hôte, remplaçant la Service Console",
+      highlight: true,
     },
     {
       year: 2016,
-      title: "vSphere 6.5",
-      description: "Amélioration de la sécurité et support des conteneurs"
+      title: 'vSphere 6.5',
+      description: 'Amélioration de la sécurité et support des conteneurs',
     },
     {
       year: 2020,
-      title: "vSphere 7.0",
-      description: "Intégration native de Kubernetes et modernisation",
-      highlight: true
+      title: 'vSphere 7.0',
+      description: 'Intégration native de Kubernetes et modernisation',
+      highlight: true,
     },
     {
       year: 2022,
-      title: "vSphere 8.0",
-      description: "Intelligence artificielle et support des DPU (Data Processing Units)"
-    }
+      title: 'vSphere 8.0',
+      description:
+        'Intelligence artificielle et support des DPU (Data Processing Units)',
+    },
   ];
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
-    
+
     events.forEach((_, index) => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              setVisibleEvents(prev => {
-                const newVisible = [...prev];
-                newVisible[index] = true;
-                return newVisible;
-              });
-            }, index * 200);
-          }
-        },
-        { threshold: 0.5 }
-      );
-      
       const element = document.getElementById(`timeline-${index}`);
       if (element) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                setVisibleEvents((prev) => {
+                  const newVisible = [...prev];
+                  newVisible[index] = true;
+                  return newVisible;
+                });
+              }, index * 200);
+            }
+          },
+          { threshold: 0.5 }
+        );
         observer.observe(element);
         observers.push(observer);
       }
     });
 
-    return () => observers.forEach(observer => observer.disconnect());
+    return () => observers.forEach((observer) => observer.disconnect());
   }, []);
 
   return (
-    <section id="history" className="py-20 bg-white">
+    <section
+      id="history"
+      className="py-20 bg-white"
+      role="region"
+      aria-label="Histoire et Évolution de VMware ESXi"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
@@ -92,10 +101,8 @@ const History: React.FC = () => {
         </div>
 
         <div className="relative">
-          {/* Timeline Line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#0fb0f0] to-[#0c5a7c]"></div>
 
-          {/* Timeline Events */}
           <div className="space-y-12">
             {events.map((event, index) => (
               <div
@@ -104,29 +111,37 @@ const History: React.FC = () => {
                 className={`relative flex items-center ${
                   index % 2 === 0 ? 'justify-start' : 'justify-end'
                 }`}
+                aria-labelledby={`timeline-${index}-label`}
               >
-                {/* Timeline Dot */}
-                <div className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-white shadow-lg transition-all duration-500 ${
-                  visibleEvents[index] 
-                    ? event.highlight 
-                      ? 'bg-[#0fb0f0] scale-110' 
-                      : 'bg-[#0c5a7c]'
-                    : 'bg-gray-300'
-                }`}></div>
+                <div
+                  className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-white shadow-lg transition-all duration-500 ${
+                    visibleEvents[index]
+                      ? event.highlight
+                        ? 'bg-[#0fb0f0] scale-110'
+                        : 'bg-[#0c5a7c]'
+                      : 'bg-gray-300'
+                  }`}
+                ></div>
 
-                {/* Event Card */}
-                <div className={`w-5/12 ${
-                  visibleEvents[index] 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-8'
-                } transition-all duration-700 delay-200`}>
-                  <div className={`bg-white rounded-xl shadow-lg p-6 border-l-4 ${
-                    event.highlight ? 'border-[#0fb0f0]' : 'border-[#0c5a7c]'
-                  } hover:shadow-xl transition-shadow duration-300`}>
+                <div
+                  className={`w-5/12 ${
+                    visibleEvents[index]
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-8'
+                  } transition-all duration-700 delay-200`}
+                >
+                  <div
+                    className={`bg-white rounded-xl shadow-lg p-6 border-l-4 ${
+                      event.highlight ? 'border-[#0fb0f0]' : 'border-[#0c5a7c]'
+                    } hover:shadow-xl transition-shadow duration-300`}
+                  >
                     <div className="flex items-center mb-3">
-                      <span className={`text-2xl font-bold ${
-                        event.highlight ? 'text-[#0fb0f0]' : 'text-[#0c5a7c]'
-                      }`}>
+                      <span
+                        className={`text-2xl font-bold ${
+                          event.highlight ? 'text-[#0fb0f0]' : 'text-[#0c5a7c]'
+                        }`}
+                        id={`timeline-${index}-label`}
+                      >
                         {event.year}
                       </span>
                       {event.highlight && (

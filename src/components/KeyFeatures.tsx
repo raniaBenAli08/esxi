@@ -1,56 +1,120 @@
-import React from 'react';
-import { Settings, Wifi, Database, TrendingUp } from 'lucide-react';
+import React, { useState } from 'react';
+import {
+  Settings,
+  Wifi,
+  Database,
+  TrendingUp,
+  Move3D,
+  HardDrive,
+  BarChart,
+  Shield,
+  Copy,
+  Camera,
+  ArrowRight,
+} from 'lucide-react';
 
 const KeyFeatures: React.FC = () => {
+  const [animatingVM, setAnimatingVM] = useState(false);
+
   const features = [
     {
-      category: "Gestion Centralisée",
+      category: 'Gestion Centralisée',
       icon: Settings,
       items: [
-        "vCenter Server pour administration unifiée",
-        "Interface web moderne et intuitive",
+        'vCenter Server pour administration unifiée',
+        'Interface web moderne et intuitive',
         "API REST complète pour l'automation",
-        "Monitoring et alertes en temps réel"
-      ]
+        'Monitoring et alertes en temps réel',
+      ],
     },
     {
-      category: "Réseau Avancé",
+      category: 'Réseau Avancé',
       icon: Wifi,
       items: [
-        "vSphere Distributed Switch",
-        "Segmentation réseau micro",
-        "Load balancing automatique",
-        "Politique de sécurité intégrée"
-      ]
+        'vSphere Distributed Switch',
+        'Segmentation réseau micro',
+        'Load balancing automatique',
+        'Politique de sécurité intégrée',
+      ],
     },
     {
-      category: "Stockage Intelligent",
+      category: 'Stockage Intelligent',
       icon: Database,
       items: [
-        "Support SAN, NAS, et vSAN",
-        "Storage vMotion sans interruption",
-        "Déduplication et compression",
-        "Snapshots et clonage rapide"
-      ]
+        'Support SAN, NAS, et vSAN',
+        'Storage vMotion sans interruption',
+        'Déduplication et compression',
+        'Snapshots et clonage rapide',
+      ],
     },
     {
-      category: "Bénéfices Business",
+      category: 'Bénéfices Business',
       icon: TrendingUp,
       items: [
-        "Consolidation serveurs (ratio 20:1)",
+        'Consolidation serveurs (ratio 20:1)',
         "Réduction TCO jusqu'à 50%",
-        "Disponibilité 99.9%+",
-        "RTO < 15 minutes"
-      ]
-    }
+        'Disponibilité 99.9%+',
+        'RTO < 15 minutes',
+      ],
+    },
+  ];
+
+  const techniques = [
+    {
+      name: 'vMotion',
+      description: 'Migration à chaud des VMs entre serveurs',
+      icon: Move3D,
+      color: 'from-blue-500 to-blue-700',
+      detail: 'Déplace les VMs sans interruption de service',
+    },
+    {
+      name: 'Storage vMotion',
+      description: 'Migration du stockage à chaud',
+      icon: HardDrive,
+      color: 'from-green-500 to-green-700',
+      detail: 'Déplace les données VM sans arrêt',
+    },
+    {
+      name: 'DRS',
+      description: 'Équilibrage automatique des ressources',
+      icon: BarChart,
+      color: 'from-purple-500 to-purple-700',
+      detail: 'Distribution optimale de la charge',
+    },
+    {
+      name: 'HA',
+      description: 'Haute disponibilité automatique',
+      icon: Shield,
+      color: 'from-red-500 to-red-700',
+      detail: 'Redémarrage auto après panne serveur',
+    },
+    {
+      name: 'FT',
+      description: 'Tolérance aux pannes continue',
+      icon: Copy,
+      color: 'from-yellow-500 to-yellow-700',
+      detail: 'VM secondaire synchrone en temps réel',
+    },
+    {
+      name: 'Snapshots',
+      description: 'Points de restauration instantanés',
+      icon: Camera,
+      color: 'from-indigo-500 to-indigo-700',
+      detail: 'Sauvegarde état complet de la VM',
+    },
   ];
 
   const metrics = [
-    { label: "Réduction des coûts", value: "50%", color: "text-green-600" },
-    { label: "Disponibilité", value: "99.9%", color: "text-blue-600" },
-    { label: "Consolidation", value: "20:1", color: "text-purple-600" },
-    { label: "ROI", value: "300%", color: "text-[#0fb0f0]" }
+    { label: 'Réduction des coûts', value: '50%', color: 'text-green-600' },
+    { label: 'Disponibilité', value: '99.9%', color: 'text-blue-600' },
+    { label: 'Consolidation', value: '20:1', color: 'text-purple-600' },
+    { label: 'ROI', value: '300%', color: 'text-[#0fb0f0]' },
   ];
+
+  const startVMotionAnimation = () => {
+    setAnimatingVM(true);
+    setTimeout(() => setAnimatingVM(false), 3000);
+  };
 
   return (
     <section id="features" className="py-20 bg-white scroll-mt-20">
@@ -68,92 +132,132 @@ const KeyFeatures: React.FC = () => {
         </div>
 
         {/* Metrics Dashboard */}
-        <div className="bg-gradient-to-r from-[#0fb0f0] to-[#0c5a7c] rounded-2xl p-8 mb-12 text-white">
-          <h3 className="text-2xl font-bold text-center mb-8">
-            Impact Business
-          </h3>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {metrics.map((metric, index) => (
-              <div key={metric.label} className="text-center">
-                <div className="text-4xl font-bold mb-2">{metric.value}</div>
-                <div className="text-sm opacity-90">{metric.label}</div>
+
+
+        {/* Features Grid */}
+       
+
+        {/* vMotion Demo */}
+        <div className="bg-white rounded-2xl shadow-xl p-8 my-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Démonstration vMotion
+            </h3>
+            <p className="text-gray-600">
+              Migration à chaud d'une machine virtuelle entre serveurs
+            </p>
+          </div>
+
+          <div className="relative flex items-center justify-between max-w-4xl mx-auto">
+            {/* Source Server */}
+            <div className="text-center">
+              <div className="w-24 h-24 bg-gradient-to-br from-[#0c5a7c] to-[#0fb0f0] rounded-xl flex items-center justify-center mb-4 relative">
+                <div className="text-white font-bold">Serveur A</div>
+                {!animatingVM && (
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center animate-pulse">
+                    <span className="text-white text-xs font-bold">VM</span>
+                  </div>
+                )}
               </div>
-            ))}
+              <p className="text-sm text-gray-600">Source</p>
+            </div>
+
+            {/* Migration Arrow and VM */}
+            <div className="flex-1 relative mx-8">
+              <ArrowRight
+                size={48}
+                className={`mx-auto text-[#0fb0f0] transition-all duration-1000 ${
+                  animatingVM ? 'scale-110 text-green-500' : ''
+                }`}
+              />
+
+              {animatingVM && (
+                <div className="absolute top-1/2 transform -translate-y-1/2 w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center animate-slide-right">
+                  <span className="text-white text-xs font-bold">VM</span>
+                </div>
+              )}
+
+              <div className="text-center mt-2">
+                <span
+                  className={`text-sm font-medium transition-colors duration-300 ${
+                    animatingVM ? 'text-green-600' : 'text-gray-600'
+                  }`}
+                >
+                  {animatingVM ? 'Migration en cours...' : 'vMotion'}
+                </span>
+              </div>
+            </div>
+
+            {/* Destination Server */}
+            <div className="text-center">
+              <div className="w-24 h-24 bg-gradient-to-br from-[#0c5a7c] to-[#0fb0f0] rounded-xl flex items-center justify-center mb-4 relative">
+                <div className="text-white font-bold">Serveur B</div>
+                {animatingVM && (
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center animate-pulse delay-2000">
+                    <span className="text-white text-xs font-bold">VM</span>
+                  </div>
+                )}
+              </div>
+              <p className="text-sm text-gray-600">Destination</p>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <button
+              onClick={startVMotionAnimation}
+              disabled={animatingVM}
+              className="bg-gradient-to-r from-[#0fb0f0] to-[#0c5a7c] text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 disabled:opacity-50"
+            >
+              {animatingVM ? 'Migration en cours...' : 'Démarrer la migration'}
+            </button>
           </div>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
+        {/* Techniques Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {techniques.map((technique) => {
+            const Icon = technique.icon;
             return (
               <div
-                key={feature.category}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                key={technique.name}
+                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border border-gray-100 hover:border-[#0fb0f0]/20"
               >
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-[#0fb0f0] to-[#0c5a7c] rounded-xl flex items-center justify-center mr-4">
-                    <Icon size={24} className="text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {feature.category}
-                  </h3>
+                <div
+                  className={`w-16 h-16 bg-gradient-to-r ${technique.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <Icon size={32} className="text-white" />
                 </div>
 
-                <div className="space-y-3">
-                  {feature.items.map((item, idx) => (
-                    <div key={idx} className="flex items-start">
-                      <div className="w-2 h-2 bg-[#0fb0f0] rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-700">{item}</span>
-                    </div>
-                  ))}
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {technique.name}
+                </h3>
+
+                <p className="text-gray-600 text-sm mb-4">
+                  {technique.description}
+                </p>
+
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-xs text-gray-700">{technique.detail}</p>
                 </div>
               </div>
             );
           })}
         </div>
-
-        {/* vCenter Screenshot Mockup */}
-        <div className="mt-16">
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-            <div className="bg-gradient-to-r from-[#0c5a7c] to-[#0fb0f0] p-4">
-              <div className="flex items-center">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                </div>
-                <div className="ml-4 text-white font-semibold">
-                  vCenter Server
-                </div>
-              </div>
-            </div>
-
-            <div className="p-8 bg-gray-50">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    Hosts actifs
-                  </h4>
-                  <div className="text-2xl font-bold text-[#0fb0f0]">12</div>
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    VMs en cours
-                  </h4>
-                  <div className="text-2xl font-bold text-green-600">247</div>
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    CPU Usage
-                  </h4>
-                  <div className="text-2xl font-bold text-yellow-600">67%</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes slide-right {
+          0% {
+            left: 0;
+          }
+          100% {
+            left: calc(100% - 2rem);
+          }
+        }
+        .animate-slide-right {
+          animation: slide-right 2s ease-in-out;
+        }
+      `}</style>
     </section>
   );
 };
