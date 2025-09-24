@@ -40,7 +40,7 @@ const AdvancedTechniques: React.FC = () => {
           <div className="flex items-center justify-center mb-4">
             <Cpu size={36} className="text-blue-500 mr-3" />
             <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
-              Architecture Technique VMware ESXi
+              Techniques
             </h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
