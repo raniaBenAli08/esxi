@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
 
             <div className="flex items-center text-sm opacity-80">
               <Calendar size={16} className="mr-2" />
-              <span>Année académique 2024-2025</span>
+              <span>Année académique 2025-2026</span>
             </div>
           </div>
 
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
 
             <div className="mt-6 pt-6 border-t border-white/20">
               <p className="text-xs opacity-70">
-                © 2024 - Présentation académique VMware ESXi
+                © 2025 - Présentation  VMware ESXi
               </p>
             </div>
           </div>
