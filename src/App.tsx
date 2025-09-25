@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Introduction from './components/Introduction';
 import History from './components/History';
 import Architecture from './components/Architecture';
 import VirtualizationTypes from './components/VirtualizationTypes';
@@ -13,10 +14,18 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 font-sans" style={{ fontFamily: 'Segoe UI, -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}>
+    <div
+      className="min-h-screen bg-gray-50 font-sans"
+      style={{
+        fontFamily:
+          'Segoe UI, -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
+      }}
+    >
       <Header />
       <main>
         <Hero />
+        <Introduction />
+
         <History />
         <Architecture />
         <VirtualizationTypes />
